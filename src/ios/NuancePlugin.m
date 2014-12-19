@@ -13,7 +13,8 @@
 
 // Must be space enough. I can not dinamically allocate, because I can not change
 // this type. It is used as a global variable in the framework.
-const unsigned char SpeechKitApplicationKey[100];
+#define MAX_SECRET_LENGTH 100
+const unsigned char SpeechKitApplicationKey[MAX_SECRET_LENGTH];
 
 @implementation NuancePlugin
 @synthesize recognizerInstance, vocalizer;
@@ -81,7 +82,7 @@ BOOL isInitialized = false;
     // Then copy the transformed data to global variabled used by nuance framework.
     CredentialsParser *parser = [[CredentialsParser alloc] initWithAppKey: secret];
     NSData* parsedSecret = [parser get];
-    memcpy( SpeechKitApplicationKey, [parsedSecret bytes], parsedSecret.length );
+    memcpy( SpeechKitApplicationKey, [parsedSecret bytes], MIN(MAX_SECRET_LENGTH, parsedSecret.length) );
     [parser release];
         
     // initialize speech kit
