@@ -30,7 +30,8 @@
             <framework src="CFNetwork.framework" /> 
             <framework src="AVFoundation.framework" /> 
             <framework src="AudioToolbox.framework" /> 
-            <framework src="CoreGraphics.framework" /> 
+            <framework src="CoreGraphics.framework" />
+            <framework src="libs/ios/SpeechKit.framework" custom="true" /> 
         </platform>
 
         <platform name="android">
