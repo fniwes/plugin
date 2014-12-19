@@ -64,20 +64,15 @@ BOOL isInitialized = false;
     
     // get the parameters
     NSString *serverName = [command.arguments objectAtIndex:0];
-    NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: serverName [%@].",  serverName);
     NSString *portStr = [command.arguments objectAtIndex:1];
-    NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: port [%@].",  portStr);
     NSString *enableSSLStr = [command.arguments objectAtIndex:2];
-    NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: enableSSL [%@].",  enableSSLStr);
-        
-    // construct the credential object
-    Credentials *creds = [Credentials alloc];
-    [creds autorelease];
+    NSString *appId = [command.arguments objectAtIndex:3];
 
-    // get the app id
-    NSString *appId = [creds getAppId];
-    NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: app id [%@].",  appId);
-    
+    NSLog(@"Init: Server = [%@].",  serverName);
+    NSLog(@"Init: Port = [%@].",  portStr);
+    NSLog(@"Init: SSL = [%@].",  enableSSLStr);
+    NSLog(@"Init: App Id = [%@].",  appId);
+        
     // initialize speech kit
     [SpeechKit setupWithID: appId
                             host: serverName
