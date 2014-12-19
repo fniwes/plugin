@@ -17,7 +17,6 @@
             </config-file>
             <header-file src="src/ios/NuancePlugin.h" />
             <source-file src="src/ios/NuancePlugin.m" compiler-flags="-fno-objc-arc" />
-            <header-file src="src/ios/ICredentials.h" />
             <header-file src="src/ios/Credentials.h" />
             <source-file src="src/ios/Credentials.m" />
            
