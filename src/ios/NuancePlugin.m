@@ -63,26 +63,17 @@ BOOL isInitialized = false;
     CDVPluginResult *result;
     
     // get the parameters
-    NSString *credentialClassName = [command.arguments objectAtIndex:0];
-    NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: credentialClassName [%@].",  credentialClassName);
-    NSString *serverName = [command.arguments objectAtIndex:1];
+    NSString *serverName = [command.arguments objectAtIndex:0];
     NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: serverName [%@].",  serverName);
-    NSString *portStr = [command.arguments objectAtIndex:2];
+    NSString *portStr = [command.arguments objectAtIndex:1];
     NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: port [%@].",  portStr);
-    NSString *enableSSLStr = [command.arguments objectAtIndex:3];
+    NSString *enableSSLStr = [command.arguments objectAtIndex:2];
     NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: enableSSL [%@].",  enableSSLStr);
         
     // construct the credential object
-    id<ICredentials> creds = nil;
-    Class credClass = NSClassFromString(credentialClassName);
-    if (credClass != nil){
-        NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: Credentials class loaded.");
-        creds = [[[credClass alloc] init] autorelease];
-        if (creds != nil){
-            NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: Credentials class intialized.");
-        }
-    }
-    
+    Credentials *creds = [Credentials alloc];
+    [creds autorelease];
+
     // get the app id
     NSString *appId = [creds getAppId];
     NSLog(@"PhoneGapSpeechPlugin.initSpeechKit: app id [%@].",  appId);

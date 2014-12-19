@@ -3,8 +3,8 @@
 //
 
 #import "Credentials.h"
-//ENTER YOUR APPLICATION KEY BELOW in the {}
-const unsigned char SpeechKitApplicationKey[] =  {};
+
+const unsigned char SpeechKitApplicationKey[] = {};
 
 @implementation Credentials 
 @synthesize appId, appKey;
