@@ -7,10 +7,13 @@
 //
 
 #import "NuancePlugin.h"
-#import "ICredentials.h"
 #import "Credentials.h"
 #import <SpeechKit/SpeechKit.h>
 
+
+// Must be space enough. I can not dinamically allocate, because I can not change
+// this type. It is used as a global variable in the framework.
+const unsigned char SpeechKitApplicationKey[100];
 
 @implementation NuancePlugin
 @synthesize recognizerInstance, vocalizer;
@@ -67,11 +70,19 @@ BOOL isInitialized = false;
     NSString *portStr = [command.arguments objectAtIndex:1];
     NSString *enableSSLStr = [command.arguments objectAtIndex:2];
     NSString *appId = [command.arguments objectAtIndex:3];
+    NSString *secret = [command.arguments objectAtIndex:4];
 
     NSLog(@"Init: Server = [%@].",  serverName);
     NSLog(@"Init: Port = [%@].",  portStr);
     NSLog(@"Init: SSL = [%@].",  enableSSLStr);
     NSLog(@"Init: App Id = [%@].",  appId);
+
+    // Transform 128-bytes string credentials to const unsigned char array.
+    // Then copy the transformed data to global variabled used by nuance framework.
+    CredentialsParser *parser = [[CredentialsParser alloc] initWithAppKey: secret];
+    NSData* parsedSecret = [parser get];
+    memcpy( SpeechKitApplicationKey, [parsedSecret bytes], parsedSecret.length );
+    [parser release];
         
     // initialize speech kit
     [SpeechKit setupWithID: appId

@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ICredentials.h"
 
+@interface CredentialsParser : NSObject {
+	NSData* _appKey;
+}
+
+- (id) initWithAppKey: (NSString*)appKey;
+- (NSData*) get;
+   
+@end
 
