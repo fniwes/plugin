@@ -1,4 +1,4 @@
-package net.ninjaenterprises.nuance;
+package nire.nuance;
 import android.util.Log;
 
 public class CredentialsParser {

@@ -1,5 +1,5 @@
 
-package net.ninjaenterprises.nuance;
+package nire.nuance;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;

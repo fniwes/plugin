@@ -1,4 +1,4 @@
-package com.nuance.speechkit.phonegap;
+package nire.nuance.phonegap;
 
 import android.os.Bundle;
 import android.util.Log;

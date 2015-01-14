@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-            id="net.ninjaenterprises.nuance" version="0.1.0">
-        <name>Device</name>
+            id="nire.nuance" version="0.1.0">
+        <name>Nuance Dragon Dictate Plugin</name>
         <description>Cordova Nuance Ndev Plugin</description>
         <license>Apache 2.0</license>
         <keywords>cordova,voice_recognition</keywords>
@@ -36,7 +36,7 @@
         <platform name="android">
             <config-file target="res/xml/config.xml" parent="/*">
                 <feature name="NuancePlugin" >
-                    <param name="android-package" value="net.ninjaenterprises.nuance.NuancePlugin"/>
+                    <param name="android-package" value="nire.nuance.NuancePlugin"/>
                 </feature>
             </config-file>
 
@@ -44,8 +44,8 @@
                 <uses-permission android:name="android.permission.RECORD_AUDIO" />
             </config-file>
 
-            <source-file src="src/android/CredentialsParser.java" target-dir="src/net/ninjaenterprises/nuance" />
-            <source-file src="src/android/NuancePlugin.java" target-dir="src/net/ninjaenterprises/nuance" />
+            <source-file src="src/android/CredentialsParser.java" target-dir="src/nire/nuance" />
+            <source-file src="src/android/NuancePlugin.java" target-dir="src/nire/nuance" />
 
             <source-file src="libs/android/nmdp_speech_kit.jar" target-dir="libs" />
             <source-file src="libs/android/armeabi/libnmsp_speex.so" target-dir="libs/armeabi" />
