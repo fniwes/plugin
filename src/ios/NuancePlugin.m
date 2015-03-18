@@ -558,6 +558,7 @@ BOOL isInitialized = false;
 - (void)recognizer:(SKRecognizer *)recognizer didFinishWithError:(NSError *)error suggestion:(NSString *)suggestion
 {
     NSLog(@"PhoneGapSpeechPlugin.recognizerDidFinishWithError: Entered method. Got error. [%@]", recoCallbackId);
+    NSLog(@"PhoneGapSpeechPlugin.recognizerDidFinishWithError: Error: [%@]", [error localizedDescription]);
     NSLog(@"PhoneGapSpeechPlugin.recognizerDidFinishWithError: Session id [%@].", [SpeechKit sessionID]); // for debugging purpose: printing out the speechkit session id
     
     isRecording = false;
